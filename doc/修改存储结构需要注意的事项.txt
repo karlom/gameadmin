@@ -1,0 +1,38 @@
+使用root权限创建数据库，然后设置权限
+CREATE DATABASE  `D3_qq_S40023` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+这里的用户名和密码跟mysql的保持一样就可以了，不然还要别外存设置文件
+CREATE USER 'qq_game_admin'@'localhost' IDENTIFIED BY  'VO8QWDazvAS6cEDk';
+
+GRANT USAGE ON * . * TO  'qq_game_admin'@'localhost' IDENTIFIED BY  'VO8QWDazvAS6cEDk' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+
+GRANT ALL PRIVILEGES ON  `D3_qq_S40023` . * TO  'qq_game_admin'@'localhost';
+
+建表语句，不能有自增的ID，也不能有主键或是索引
+
+CREATE TABLE t_log_item (
+  mdate datetime NOT NULL COMMENT '日期时间',
+  mtime int(11) NOT NULL DEFAULT '0' COMMENT '时间戳',
+  uuid varchar(40) NOT NULL COMMENT 'uuid',
+  account_name varchar(40) NOT NULL COMMENT '帐号名',
+  role_name varchar(30) NOT NULL COMMENT '角色名',
+  `level` smallint(4) NOT NULL DEFAULT '0' COMMENT '等级',
+  `type` int(5) NOT NULL DEFAULT '0' COMMENT '道具类型',
+  item_id int(11) NOT NULL COMMENT '道具ID',
+  item_num int(11) NOT NULL COMMENT '道具数量',
+  is_bind tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否绑定',
+  detail text COMMENT '道具详情',
+  `year` smallint(4) NOT NULL DEFAULT '0' COMMENT '年',
+  `month` tinyint(2) NOT NULL DEFAULT '0' COMMENT '月',
+  `day` tinyint(2) NOT NULL DEFAULT '0' COMMENT '天',
+  `hour` tinyint(2) NOT NULL DEFAULT '0' COMMENT '时',
+  min tinyint(2) NOT NULL DEFAULT '0' COMMENT '分'
+) ENGINE=brighthouse  DEFAULT CHARSET=utf8 COMMENT='道具流通日志';
+
+如果要修改数据的话需要把表删除之后重建然后导入数据
+DROP TABLE `t_log_item`;
+
+
+加载数据的语句示例：
+ load data infile '/data/web/admin/logs/qq/etl_csv_file/40023/t_log_item.csv' into table t_log_item fields terminated by ',' optionally enclosed by  '"' lines terminated by '\n';
+
+ 

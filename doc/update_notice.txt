@@ -1,0 +1,453 @@
+#=============start 2013-03-28==========#
+修改表t_apply_goods的字段
+alter table t_apply_goods drop `money`;
+alter table t_apply_goods drop `bind_money`;
+alter table t_apply_goods drop `gold`;
+alter table t_apply_goods drop `bind_gold`;
+
+alter table t_apply_goods change `apply_id` `applyID` int(11) NOT NULL AUTO_INCREMENT;
+alter table t_apply_goods change `send_type` `sendType` tinyint(1) DEFAULT NULL COMMENT '赠送类型,按玩家名赠送为0,按条件赠送为1';
+alter table t_apply_goods change `mail_title` `mailTitle` varchar(64) DEFAULT NULL COMMENT '信件标题';
+alter table t_apply_goods change `mail_content` `mailContent` varchar(1024) DEFAULT NULL COMMENT '信件内容';
+alter table t_apply_goods change `role_name_list` `roleNameList` varchar(4096) DEFAULT NULL COMMENT '赠送玩家列表或者赠送条件';
+
+alter table t_apply_goods add `yuanbao` int(11) DEFAULT '0' COMMENT '申请元宝';
+alter table t_apply_goods add `liquan` int(11) DEFAULT '0' COMMENT '申请礼券';
+alter table t_apply_goods add `yinliang` int(11) DEFAULT '0' COMMENT '申请银两';
+
+
+#=============start 2013-04-08==========#
+修改表 t_log_client_info ，添加font字段
+alter table t_log_client_info add `font` tinyint(1) DEFAULT NULL COMMENT '字体类型:0宋体,1黑体,2幼圆,3楷体';
+
+修改表 t_log_gm 的名字
+alter table t_log_gm rename to t_log_admin;
+
+#=============start 2013-04-08==========#
+修改表 t_log_market_sell 添加 is_bind字段
+alter table t_log_market_sell add `is_bind` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否绑定,0:不绑定,1:绑定';
+
+
+#=============start 2013-04-19==========#
+修改表 t_log_family_chat 添加 familyName 字段
+alter table t_log_family_chat add `familyName` varchar(30) DEFAULT NULL COMMENT '家族名称';
+修改表 t_log_deal 添加 target_account, target_name字段
+alter table t_log_deal add `target_account` varchar(40) NOT NULL COMMENT '目标账号名';
+alter table t_log_deal add `target_name` varchar(30) NOT NULL COMMENT '目标角色名';
+alter table t_log_deal change `item_get` `item_get` varchar(1024) DEFAULT NULL COMMENT '获得的道具+数量';
+alter table t_log_deal change `item_lose` `item_lose` varchar(1024) DEFAULT NULL COMMENT '失去的道具+数量';
+
+
+#=============start 2013-04-25==========#
+修改表 t_log_admin, 删除 item_id、num 字段，添加 items 字段
+alter table t_log_admin add `items` varchar(1024) DEFAULT NULL COMMENT '赠送道具内容';
+alter table t_log_admin drop `item_id`;
+alter table t_log_admin drop `num`;
+
+
+#=============start 2013-04-25==========#
+修改表 t_log_chat, 重命名txt字段为context
+alter table t_log_chat change `txt` `content` varchar(255) DEFAULT NULL COMMENT '内容' ;
+
+#=============start 2013-06-06==========#
+增加角色标签表 c_role_label
+
+#=============start 2013-06-06==========#
+增加玩家投诉建议表 t_log_player_opinion
+
+#=============start 2013-06-18==========#
+增加打坐挂机日志 t_log_hang
+
+#=============start 2013-06-19==========#
+增加技能快捷栏日志 t_log_skill_main_menu
+
+#=============start 2013-06-22==========#
+增加 采集复活日志 t_log_collect_revive, 晶幻洞天通关日志 t_log_jhdt_info
+t_log_die 增加 地图ID字段 map_id。
+
+alter table t_log_die add `map_id` int(11) NOT NULL DEFAULT '0' COMMENT '地图ID';
+
+#=============start 2013-06-24==========#
+增加 三个仙邪问鼎副本相关日志表：
+t_log_xxwd_collect	#仙邪问鼎采集日志
+t_log_xxwd_score	#仙邪问鼎比分日志
+t_log_xxwd_board	#仙邪问鼎排行榜
+
+
+#=============start 2013-07-02==========#
+增加 三个遗迹寻宝副本相关日志表：
+t_log_yjxb_skill	#遗迹寻宝技能使用日志
+t_log_yjxb_collect	#遗迹寻宝宝箱采集日志
+t_log_yjxb_jb	#遗迹寻宝金币拾取掉落日志
+
+
+#=============start 2013-07-04==========#
+增加 不灭试炼副本相关日志表：
+t_log_bmsl_live	#不灭试炼存活玩家/排行榜
+
+
+#=============start 2013-07-08==========#
+增加 不灭试炼副本相关日志表：
+t_log_bmsl_jyzs	#不灭试炼记忆之石日志
+
+
+#=============start 2013-07-26==========#
+增加 魔物暴动活动相关日志表：
+t_log_mwbd_join_info	#魔物暴动活动参加日志
+t_log_mwbd_role_cnt	#魔物暴动地图人数日志
+t_log_mwbd_monster_die	#魔物暴动怪物死亡日志
+t_log_mwbd_family_rank	#魔物暴动怪物家族排名
+增加 客户端调试信息日志表：
+t_log_client_err_load	#客户端加载和解码报错日志
+t_log_client_err_mem_map	#客户端地图加载内存问题日志
+
+
+
+#=============start 2013-07-26==========#
+ ALTER TABLE `t_log_register` change `account_name` `account_name` varchar(40) BINARY NOT NULL COMMENT '账号名';
+ ALTER TABLE `t_log_register` change `role_name` `role_name` varchar(30) BINARY NULL COMMENT '角色名';
+ 
+
+#=============start 2013-07-26==========#
+增加 玩家提BUG或建议日志
+t_log_bug
+
+#=============start 2013-08-28==========#
+增加 通缉令挑战日志
+t_log_wanted
+
+#=============start 2013-09-03==========#
+增加 玩家禁言表
+t_ban_chat
+
+
+#=============start 2013-09-04==========#
+修改t_apply_goods信件内容的长度
+alter table t_apply_goods change `mailContent` `mailContent` text DEFAULT NULL COMMENT '信件内容';
+
+添加活动参与数据统计表 c_activity_join
+
+#=============start 2013-09-05==========#
+境界表修改，
+1. t_log_jingjie表 level字段改名为jingjielv ，item_num 改为 itemNum
+2. 删除t_log_jingjie_ym表，添加t_log_jingjie_skill表
+
+
+#=============start 2013-09-10==========#
+t_message_broadcast 表修改，增加type字段长度
+alter table t_message_broadcast change `type` `type` int(11) NOT NULL COMMENT '消息位置';
+
+#=============start 2013-09-12==========#
+增加 禁封账号表、禁封IP 表
+t_ban_account
+t_ban_ip
+
+#=============start 2013-09-12==========#
+增加 玩家活跃日志
+t_log_huoyue
+
+#=============start 2013-09-26==========#
+增加 黄钻开通日志、Q点购买道具日志
+t_log_open_vip 
+t_log_buy_goods
+
+#=============start 2013-09-30==========#
+增加 定时发送道具表t_regular_send_item
+
+开通黄钻日志表增加 isYear字段
+alter table t_log_open_vip add `isYear` smallint(2) DEFAULT '0' COMMENT '开通年费黄钻';
+
+
+#=============start 2013-10-08==========#
+更新c_activity_join数据，新增了晶幻洞天活动，仙邪问鼎两次都参与的统计id由8改到101
+update c_activity_join set act_no=101 where act_no=8 and activity='仙邪问鼎';
+
+#=============start 2013-10-09==========#
+增加 神秘商店日志 t_log_shop_rand
+
+#=============start 2013-10-11==========#
+增加 
+法宝进阶日志 t_log_talisman_upgrade
+法宝激活幻化日志 t_log_talisman_illusion
+
+#=============start 2013-10-11==========#
+更新t_log_buy_goods表，添加pubacct抵扣券字段
+alter table t_log_buy_goods add `pubacct` int(11) NOT NULL COMMENT '抵扣券';
+
+#=============start 2013-10-15==========#
+增加表 
+战力排行榜 t_log_billboard_role_atk
+
+#=============start 2013-10-17==========#
+增加表 
+创建GM角色日志 t_create_gm_role
+增加索引
+alter table t_log_item add KEY `type`(`type`);
+alter table t_log_item add KEY `item_id`(`item_id`);
+alter table t_log_gold add KEY `type`(`type`);
+alter table t_log_money add KEY `type`(`type`);
+alter table t_log_liquan add KEY `type`(`type`);
+alter table t_log_lingqi add KEY `type`(`type`);
+alter table t_log_tiancheng add KEY `type`(`type`);
+
+
+#=============start 2013-10-22==========#
+增加表 
+npc商店购买日志 t_log_npc_shop_buy
+删号日志 t_log_delete
+
+
+#=============start 2013-10-24==========#
+增加字段
+
+alter table t_log_shop_rand add `uuid` varchar(40) NOT NULL COMMENT 'uuid';
+alter table t_log_shop_rand add `account_name` varchar(40) NOT NULL COMMENT '账号名';
+alter table t_log_shop_rand add `role_name` varchar(30) NOT NULL COMMENT '角色名';
+alter table t_log_shop_rand add `yinliang` int(11) NOT NULL DEFAULT '0' COMMENT '铜币';
+alter table t_log_shop_rand add `yuanbao` int(11) NOT NULL DEFAULT '0' COMMENT '仙石';
+alter table t_log_shop_rand add `is_vip` tinyint(2) NOT NULL COMMENT '是否Vip';
+
+alter table t_log_shop_rand add KEY `uuid` (`uuid`);
+alter table t_log_shop_rand add KEY `account_name` (`account_name`);
+alter table t_log_shop_rand add KEY `role_name` (`role_name`);
+alter table t_log_shop_rand add KEY `item_id` (`item_id`);
+
+
+#=============start 2013-10-28==========#
+队员列表修改
+t_log_team
+-- t_log_team 新增字段
+alter table t_log_team add `name1` varchar(30) DEFAULT NULL COMMENT '队员1';
+alter table t_log_team add `name2` varchar(30) DEFAULT NULL COMMENT '队员2';
+alter table t_log_team add `name3` varchar(30) DEFAULT NULL COMMENT '队员3';
+alter table t_log_team add `name4` varchar(30) DEFAULT NULL COMMENT '队员4';
+alter table t_log_team add `name5` varchar(30) DEFAULT NULL COMMENT '队员5';
+-- 更新数据
+update t_log_team set 
+`name1`=SUBSTRING_INDEX(`teamMemberInfo`,'|',1) , 
+`name2`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',2),'|',-1), 
+`name3`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',3),'|',-1), 
+`name4`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',4),'|',-1), 
+`name5`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',5),'|',-1);
+-- 删除旧字段
+alter table t_log_team drop `teamMemberInfo`;
+
+-- t_log_jhdt_info 新增字段
+alter table t_log_jhdt_info add `name1` varchar(30) DEFAULT NULL COMMENT '队员1';
+alter table t_log_jhdt_info add `name2` varchar(30) DEFAULT NULL COMMENT '队员2';
+alter table t_log_jhdt_info add `name3` varchar(30) DEFAULT NULL COMMENT '队员3';
+alter table t_log_jhdt_info add `name4` varchar(30) DEFAULT NULL COMMENT '队员4';
+alter table t_log_jhdt_info add `name5` varchar(30) DEFAULT NULL COMMENT '队员5';
+-- 更新数据
+update t_log_jhdt_info set 
+`name1`=SUBSTRING_INDEX(`teamMemberInfo`,'|',1) , 
+`name2`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',2),'|',-1), 
+`name3`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',3),'|',-1), 
+`name4`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',4),'|',-1), 
+`name5`=SUBSTRING_INDEX(SUBSTRING_INDEX(`teamMemberInfo`,'|',5),'|',-1);
+-- 删除旧字段
+alter table t_log_jhdt_info drop `teamMemberInfo`;
+
+
+#=============start 2013-10-29==========#
+神秘商店npc_id修改
+alter table t_log_shop_rand add `npc_id` int(11) NOT NULL DEFAULT '0' COMMENT 'NpcID';
+alter table t_log_shop_rand drop `map_id` ;
+alter table t_log_shop_rand add KEY `npc_id` (`npc_id`);
+
+#=============start 2013-11-02==========#
+修改聊天日志内容长度
+alter table `t_log_chat` change `content` `content` varchar(600) DEFAULT NULL COMMENT '内容';
+alter table `t_log_family_chat` change `content` `content` varchar(600) DEFAULT NULL COMMENT '内容';
+alter table `t_log_friend_chat` change `content` `content` varchar(600) DEFAULT NULL COMMENT '内容';
+
+#=============start 2013-11-05==========#
+Q点购买日志t_log_buy_goods增加字段
+alter table t_log_buy_goods add `amt` int(11) NOT NULL DEFAULT '0' COMMENT 'Q币Q点*0.1';
+
+
+#=============start 2013-11-05==========#
+登录日志t_log_login增加字段
+alter table t_log_login add `contract_id` varchar(40) DEFAULT NULL COMMENT '任务集市ID';
+
+
+#=============start 2013-12-26==========#
+增加key：
+alter table t_log_gold add key `mtime` (`mtime`);
+alter table t_log_liquan add key `mtime` (`mtime`);
+alter table t_log_buy_goods add key `mtime` (`mtime`);
+alter table t_log_create_loss add key `mtime` (`mtime`);
+alter table t_log_register add key `mtime` (`mtime`);
+alter table t_log_online add key `mtime` (`mtime`);
+alter table t_log_login add key `mtime` (`mtime`);
+
+增加日志表：
+任务集市
+跨服切换日志
+蓝钻icon日志
+蓝钻礼包日志
+绑定铜币日志
+
+#=============start 2014-01-06==========#
+增加日志表：
+神炉拆解日志
+累计充值日志
+
+#=============start 2014-01-09==========#
+在线日志表增加vip在线字段 onlineVip：
+alter table t_log_online add `onlineVip` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'vip在线人数';
+alter table t_log_register add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+alter table t_log_logout add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+
+alter table t_log_login add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+alter table t_log_login add `xianzun` smallint(4) NOT NULL DEFAULT '0' COMMENT 'vip等级';
+alter table t_log_login add `zhandouli` int(11) NOT NULL DEFAULT '0' COMMENT '战斗力';
+
+
+#=============start 2014-01-20==========#
+后台数据库game_admin，t_server_config 增加字段 合服字段：
+alter table t_server_config add `iscombine` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否已经合服';
+alter table t_server_config add  `combinedate` date DEFAULT NULL  COMMENT '合服日期';
+
+#=============start 2014-01-20==========#
+增加龙脉升级日志表 t_log_vein_lv 
+
+#=============start 2014-02-24==========#
+增加求婚日志、求婚结果日志、婚宴预约日志
+t_log_marry_ask, t_log_marry_ask_result, t_log_marry_book
+
+#=============start 2014-02-28==========#
+增加仙羽排行榜
+t_log_billboard_wing
+
+#=============start 2014-03-06==========#
+Q点购买道具记录表增加pf字段
+alter table t_log_buy_goods add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+
+#=============start 2014-03-07==========#
+增加离婚日志
+t_log_marry_divorce
+
+#=============start 2014-03-21==========#
+增加日志表
+跨服BOSS活动结果 t_log_middle_boss_result, 
+跨服BOSS伤害排行 t_log_middle_boss_board
+
+#============= 2014-04-09==========#
+跨服BOSS活动结果 t_log_middle_boss_result 表增加 杀死boss的人 字段：
+alter table t_log_middle_boss_result add `kill_uuid` varchar(40) NOT NULL COMMENT '杀死boss的人';
+
+新增排行日志表：
+
+坐骑排行榜 t_log_billboard_horse
+宠物战力排行榜 t_log_billboard_pet_zhandouli
+宠物境界排行榜 t_log_billboard_pet_jingjie
+宠物资质排行榜 t_log_billboard_pet_zizhi
+
+#============= 2014-04-09==========#
+
+新增日志表：
+仙缘值日志 t_log_marry_xianyuanzhi
+圣纹镶嵌日志 t_log_refine_inlay_gem2
+
+#============= 2014-04-18==========#
+增加字段：t_apply_goods t_log_admin
+alter table t_apply_goods add `visible` tinyint(1) DEFAULT '1' COMMENT '是否可见';
+alter table t_log_admin add `visible` tinyint(1) DEFAULT '1' COMMENT '是否可见';
+
+#============= 2014-04-19==========#
+新增日志表：
+等级限购礼包领取 t_log_shop_djxg_get
+等级限购商品购买 t_log_shop_djxg_buy
+坐骑升级日志 t_log_talisman_uplevel
+翅膀升级日志 t_log_wing_uplevel
+
+#============= 2014-05-12==========#
+新增日志表：
+开通蓝钻日志 t_log_open_vip_blue
+
+#============= 2014-05-26==========#
+新增日志表：
+开通蓝钻日志 t_log_open_vip_yellow
+恢复玩家数据记录 t_restore_player_data
+
+#============= 2014-06-03==========#
+注册、登录日志添加字段
+alter table t_log_register add `app_custom` varchar(40) DEFAULT NULL COMMENT '自定义标记';
+alter table t_log_login add `app_custom` varchar(40) DEFAULT NULL COMMENT '自定义标记';
+
+#============= 2014-06-10==========#
+排行榜日志添加字段
+alter table t_log_billboard_horse change `level` `level` smallint(4) NOT NULL DEFAULT '0' COMMENT '等级';
+alter table t_log_billboard_horse add `horse_lv` smallint(4) NOT NULL DEFAULT '0' COMMENT '坐骑等级';
+alter table t_log_billboard_pet_zhandouli `petLv` smallint(4) NOT NULL DEFAULT '0' COMMENT '宠物等级';
+alter table t_log_billboard_pet_jingjie `petLv` smallint(4) NOT NULL DEFAULT '0' COMMENT '宠物等级';
+alter table t_log_billboard_pet_zizhi `petLv` smallint(4) NOT NULL DEFAULT '0' COMMENT '宠物等级';
+
+增加排行日志表：
+神武擂台排行榜	t_log_billboard_jingji
+鲜花排行榜	t_log_billboard_flower_sum
+
+#============= 2014-06-11==========#
+增加 风蚀地宫捐献日志 t_log_fsdg_info
+
+#============= 2014-06-17==========#
+增加 合服活动消费日志 t_log_combine_activity
+
+#============= 2014-06-17==========#
+增加 联运充值日志 t_log_pay
+
+#============= 2014-06-30==========#
+改字段
+alter table t_restore_player_data change `old_data` `old_data` varchar(30720) DEFAULT NULL COMMENT '恢复前的数据';
+alter table t_restore_player_data change `new_data` `new_data` varchar(30720) DEFAULT NULL COMMENT '恢复后的数据';
+
+增加家族数据恢复表：
+t_restore_family_data
+
+#============= 2014-07-23==========#
+增加 微端礼包日志 t_log_weiduan_tip_libao
+增加 微端下载日志 t_log_weiduan_down_libao
+
+
+#============= 2014-07-25==========#
+增加 聚划算礼包日志 t_log_juhuasuan
+
+
+#============= 2014-07-29==========#
+注册表t_log_register新增is_miniclient字段
+alter table t_log_register add `is_miniclient` int(5) NOT NULL COMMENT '是否微端';
+
+登录表t_log_login新增is_miniclient字段
+alter table t_log_login add `is_miniclient` int(5) NOT NULL COMMENT '是否微端';
+
+登出表t_log_logout新增is_miniclient字段
+alter table t_log_logout add `is_miniclient` int(5) NOT NULL COMMENT '是否微端';
+
+#============= 2014-08-01==========#
+聚划算礼包日志t_log_juhuasuan新增xianshi字段
+alter table t_log_juhuasuan add `xianshi` int(11) NOT NULL COMMENT '消耗仙石';
+
+#============= 2014-08-25==========#
+增加 问卷调查日志 t_log_question_survey
+增加 蓝钻开通日志 t_log_open_vip2
+
+#============= 2014-09-01==========#
+蓝钻开通日志t_log_open_vip2新增highBlue字段
+alter table t_log_open_vip2 add `highBlue` smallint(2) DEFAULT '0' COMMENT '是否豪华版蓝钻';
+
+#============= 2014-09-02==========#
+增加 回流礼包日志 t_log_player_return
+
+#============= 2014-09-05==========#
+仙石获得与使用日志t_log_gold新增pf字段
+alter table t_log_gold add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+
+绑定仙石获得与使用日志t_log_liquan新增pf字段
+alter table t_log_liquan add `pf` varchar(40) DEFAULT NULL COMMENT '平台';
+
+增加 土豪赠礼日志
+增加 幸运转盘日志
+
+#============= 2015-02-09==========#
+增加 加速检测日志、天元宝库兑换日志

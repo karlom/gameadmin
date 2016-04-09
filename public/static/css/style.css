@@ -1,0 +1,415 @@
+body {
+	font-size: 12px;
+	line-height: 150%;
+}
+
+td {
+	font-size: 12px;
+	line-height: 150%;
+}
+form {
+	margin:0;
+	padding:0;
+}
+
+a:link { color: #000000; text-decoration: none; font-size: 12px}
+a:visited
+  { color: #000000; text-decoration: none; font-size: 12px}
+a:hover { color: #FF00FF;
+  text-decoration: underline; font-size: 12px}
+a:active { color: #FF00FF; text-decoration:
+  underline; font-size: 12px}
+a.big:link { font-size: 14px; color: #000000; text-decoration: none}
+a.big:visited { font-size: 14px; color: #000000; text-decoration: none}
+a.big:hover { font-size: 14px; color: #FF00FF; text-decoration: none}
+a.big:active { font-size: 14px; color: #000000; text-decoration: none}
+.gray {
+	border: 1px solid #E7E7E7;
+}
+.p14 {
+	font-size: 14px;
+	line-height: 180%;
+}
+.fl14 {
+	font-size: 14px;
+	line-height: 180%;
+}
+.4pink {
+	border: 1px solid #FF6699;
+}
+.bg {
+	background-repeat: no-repeat;
+}
+.4black {
+	border: 1px solid #000000;
+}
+.imgborder {
+	border: 1px solid #000000;
+}
+.xuxian {
+	border-top-width: 1px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: dotted;
+	border-right-style: dotted;
+	border-bottom-style: dotted;
+	border-left-style: dotted;
+	border-top-color: #999999;
+	border-right-color: #999999;
+	border-bottom-color: #999999;
+	border-left-color: #999999;
+}
+
+.table_list {
+	border-color:SkyBlue;
+	border-width:1px;
+	border-style:solid;
+	width:98%;
+
+}
+
+.table_list tr:hover,
+.DataGrid tr:hover{
+	background:#F5F5DC;
+	border:#f00;
+}
+.table_list_head {
+	color:#232323;
+	background-color:#D7E4F5;
+	font-weight:bold;
+}
+.trEven {
+	background-color:#EDF2F7;
+}
+.trOdd {
+	background-color:#E0F0F0;
+}
+.trRollup {
+	background-color:#C0D0D0;
+}
+
+.all_event {
+	margin:10px 0px 0px 100px;
+	width:980px;
+}
+.all_event_each {
+	float:left;
+	margin:10px 0px 0px 0px;
+	border:1px #ecec99 solid;
+	width:200px;
+	height:25px;
+}
+.all_event_word {
+	float:left;
+	margin:20px 0px 0px 0px;
+	border:0px #000000 solid;
+	width:760px;
+	height:35px;
+}
+.all_event_span {
+	display:none;
+	float:left;
+	margin:0px 0px 0px 5px;
+}
+.all_event_name {
+	float:left;
+	margin:0px 3px 0px 0px;
+}
+
+.all_event_id {
+	border: 1px solid #000000;
+	padding:10px;
+	width:180px;
+	display:block;
+}
+
+.all_event_pid {
+	border: 1px solid red;
+	padding:10px;
+	width:180px;
+	display:block;
+}
+.all_event_list {
+	clear:both;
+	margin:5px 0px 0px 2px;
+	border:1px #000000 solid;
+	width:900px;
+}
+.all_event_list_name {
+	float:left;
+	margin:5px 0px 0px 2px ;
+	border:1px #ec0000 solid;
+	width:100px;
+}
+.all_event_eachc {
+	float:left;
+	text-align:center;
+	margin:10px 0px 0px 0px;
+	border:1px #000000 solid;
+	width:70px;
+	height:35px;
+}
+.all_event_count {
+	border:1px solid #110000;
+	clear:both;
+	color:#232323;
+	background-color:#D7E4F5;
+	margin:10px 0px 0px 20px;
+	padding:0px 0px 10px;
+	width:1008px;
+}
+
+
+/* -------------------------------------------- */
+.font_number_red { color:red; }
+.font_number { color:#FF7100; }
+
+.red { color:red; }
+.green { color:#00FF00; }
+.blue { color:#00CCFF; }
+.yellow { color:yellow; }
+.val { color:#FF7100; }
+.pink { color:#F79AC7; }
+.yellow2 { color:#FF661A; }
+
+/*********英锟斤拷 锟斤拷锟斤拷锟斤拷色锟斤拷去锟斤拷锟缴�****/
+.quality1, .quality1_oc {	color:#8C8A8C; } /*锟斤拷 */
+.quality2, .quality2_oc {	color:#009A63; } /* 锟斤拷 */
+.quality3, .quality3_oc {	color:#0071DE; } /* 6 */
+.quality4, .quality4_oc {	color:#BB2FFF; } /* 锟斤拷 */
+.quality5, .quality5_oc {	color:#FF7531; } /* 锟斤拷 */
+.quality6, .quality6_oc {   color:#FFD800; } /* 锟斤拷 */
+
+/**************锟斤拷页坪偶锟斤拷锟斤拷锟缴�********************/
+.place_quality1{ color:#FF7531;}
+.place_quality2{ color:#FFD800;}
+.place_quality3{ color:#BB2FFF;}
+
+/*********锟斤拷锟斤拷锟缴�****/
+.faction2{	color:#4a9b01;}
+.faction3{	color:#2d7386;}
+.faction4{	color:#a7549b;}
+.faction2_basecolor{	color: #00ff00;}
+.faction3_basecolor{	color: #d600ef;}
+.faction4_basecolor{	color: #00ccff;}
+
+/* -------------------------------------------- */
+.sortable { border:1px solid #ccc;border-bottom:none; }
+.sortable td { border-bottom:1px solid #ccc; }
+
+/* 寮犲溅宄颁簬3鏈�5鏃ヤ慨鏀�----------------------------- */
+ul.s_anchor { list-style:none; margin:-2px; padding:0;}
+ul.s_anchor li { float:left; padding:3px 5px; margin:2px; background:#D7E4F5; border:1px solid #86C1FF;}
+
+#day_range {border:1px #ccc solid; padding: 4px 0px; text-align:left;clear:both; margin-top:4px;}
+#day_range ul{list-style:none; margin:10px; padding:0;}
+
+#selectedServers { height:30px; list-style:none; margin:0; padding:0; }
+#selectedServers li{ 
+	float:left; 
+	height:22px; 
+	line-height:22px; 
+	padding:0px 4px; 
+	border:1px solid #86C1FF; 
+	margin:0 2px; 
+	position:relative;
+}
+#selectedServers span.dataColor { display:inline-block; width:12px; height:12px; position:relative; top:1px;}
+
+.location{text-align:left;margin:0;padding:0;font-size:12px;}
+.float_left{float: left;}
+.float_right{float: right;}
+
+.clearfix:after  {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: block;
+}
+.left{float:left;}
+.right{float: right;}
+
+/* ligengbin CSS */
+tr .item-editing{display:none;}
+tr.editing .item-editing{display:inline-block;}
+
+tr.editing .item-normal{display:none;}
+tr .item-normal{display:inline-block;}
+
+.autoMain{
+	position:absolute;
+	background-color:#FFF;
+	width:250px;
+	border:1px solid #CCC;
+	display:none;
+}
+.autoClose{
+	border-bottom:1px solid #DDD;
+	width:95%;
+}
+.autoList{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	height:200px;
+	overflow-y:auto;
+}
+.autoList li{
+	border-bottom:1px solid #DDD;
+	padding:2px 10px;
+	cursor:pointer;
+}
+.autoList li:hover{
+	background-color:#B5BDC4;
+}
+
+.gemsMain{
+	position:absolute;
+	background-color:#FFF;
+	width:250px;
+	border:1px solid #CCC;
+	display:none;
+}
+.gemsClose{
+	border-bottom:1px solid #DDD;
+	width:95%;
+}
+.gemsList{
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	height:200px;
+	overflow-y:auto;
+}
+.gemsList li{
+	border-bottom:1px solid #DDD;
+	padding:2px 10px;
+	cursor:pointer;
+}
+.gemsList li:hover{
+	background-color:#B5BDC4;
+}
+
+/* wukehua CSS */
+.error_msg_box{
+	border: 1px solid #B88488;
+	color: #BE685B;
+	font-weight: bold;
+	background: #FECCCB;
+	margin: 5px 0px;
+	text-align: center;
+}
+
+.success_msg_box{
+	border: 1px solid #33AA33;
+	color: #33AA33;
+	font-weight: bold;
+	margin: 5px 0px;
+	text-align: center;
+}
+
+.sortable th{
+	cursor: pointer;
+}
+.label{
+	font-weight:bold;
+}
+
+.link-button{
+	border:1px solid #38ACE4;
+	padding: 2px 5px 2px 5px;
+	background: white;
+}
+.actionTypes li.inline{
+	float:left;
+	width: 150px;
+}
+.actionTypes li.block{
+	float:left;
+	width: 100%;
+}
+.clear{
+	clear:both;
+}
+.detail_head{
+	background:#ccc;
+}
+
+.mini_table{
+	width: 45%;
+	float: left;
+	margin-right: 30px;
+}
+.main-container{
+	width:900px;
+}
+
+.conflict{
+	border: 1px solid #f00;
+}
+.history
+{
+  color: grey;
+}
+.timeset
+{
+	float: left;
+}
+.ts_rel input {
+    width: 50px;
+}
+.divOperation input[type='text'],
+.divOperation select{
+	border:1px solid #999999;
+}
+
+/* Libiao CSS */
+.rank{
+/*	overflow-y:auto;*/
+	position:absolute;
+	background-color:#88F;
+	width:520px;
+	height:200px; 
+	border:1px solid #CCC;
+	display:none;
+}
+.rank_thead{
+	background-color:#88F;
+	width:520px;
+	height:25px; 
+	border:1px solid #CCC;
+}
+.rank_tbody{
+	overflow-y:auto;
+	background-color:#8F8;
+	width:520px;
+	height:175px; 
+	border:1px solid #CCC;
+}
+
+.score{
+	position:absolute;
+	background-color:#FF8;
+	width:380px;
+	height:130px; 
+	border:1px solid #CCC;
+	display:none;
+}
+.score_thead{
+	background-color:#88F;
+	width:380px;
+	height:25px; 
+	border:1px solid #CCC;
+}
+.score_tbody{
+	overflow-y:auto;
+	background-color:#8F8;
+	width:380px;
+	height:105px; 
+	border:1px solid #CCC;
+}

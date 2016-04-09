@@ -1,0 +1,20 @@
+Author : Alva Wu  alva.wu@qq.com
+Date :	2012.3.12
+Ver	: 0.1
+
+Example:
+
+$(document).ready(function(){
+	$.autolist({
+		bind: 'consumption_type_widget',//指定要绑定到哪个input控件的id。
+		options: {"10001": "商城购买道具", "10002": "连续登录换道具"},//所包含的选项（json格式），在弹出层将以"key | value"的格式显示
+		onItemClick: function(key, item){
+			$('#consumption_type_widget').val(item.text());
+			$('#consumption_type').val(key);
+		},// 点击某个选项的回调函数，必须定义两个参数key和item，key是前面options所对应的键值，item是点击所对应的jQuery对象
+		onReset: function(){// 点击reset的回调函数
+			$('#consumption_type').val('');
+		},
+		onClose: handleClose // 点击close的回调函数
+	});
+})

@@ -1,0 +1,80 @@
+#personPopupContainer
+{
+    position:absolute;
+    left:0;
+    top:0;
+    display:none;
+    z-index: 20000;
+}
+
+.personPopupPopup
+{
+}
+
+#personPopupContent
+{
+    background-color: #FFF;
+    min-width: 175px;
+    min-height: 50px;
+    height: 210px;
+    width: 215px;
+}
+
+.personPopupPopup .personPopupImage
+{
+    margin: 5px;
+    margin-right: 15px;
+}
+
+.personPopupPopup .corner 
+{
+    width: 19px;
+    height: 15px;
+}
+    
+.personPopupPopup .topLeft 
+{
+    background: url(images/balloon_topLeft.png) no-repeat;
+}
+    
+.personPopupPopup .bottomLeft 
+{
+    background: url(images/balloon_bottomLeft.png) no-repeat;
+}
+    
+.personPopupPopup .left 
+{
+    background: url(images/balloon_left.png) repeat-y;
+    width:19px;
+    height:210px;
+    padding:0;
+}
+    
+.personPopupPopup .right 
+{
+    background: url(images/balloon_right.png) repeat-y;
+    width:19px;
+    height:210px;
+    padding:0;
+}
+    
+.personPopupPopup .topRight 
+{
+    background: url(images/balloon_topRight.png) no-repeat;
+}
+    
+.personPopupPopup .bottomRight 
+{
+    background: url(images/balloon_bottomRight.png) no-repeat;
+}
+    
+.personPopupPopup .top 
+{
+    background: url(images/balloon_top.png) repeat-x;
+}
+    
+.personPopupPopup .bottom 
+{
+    background: url(images/balloon_bottom.png) repeat-x;
+    text-align: center;
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Set Icon of the Activities</title>
+    <link rel="stylesheet" href="/static/css/base.css" type="text/css" />
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/static/js/setTime.js"></script>
+    <!-- <script type="text/javascript"> -->
+    <script type="text/javascript">
+	    $(document).ready(function(){
+	        if ( "<{$result}>" == 1 ){
+	            alert ("<{$lang->account->setSuccess}>");
+	            location.href = "<{$smarty.const.URL_SELF}>";
+	        }
+	    })
+    </script>
+</head>
+<body>
+    <div id="position"><{$lang->menu->class->activity}>:<{$lang->menu->setIcon}></div>
+	<span style="color:#f00;"><{$lang->msg->icon1}></span>
+	<span style="color:#f00; margin-left:35px;"><{$lang->msg->icon2}></span>
+		
+    <form action="" method="post">
+        <table class="DataGrid">
+            <tr>
+                <th>  <!--<{$lang->activity->setKaifu}></th> -->
+		    <div>
+			<!-- 选择接口类型 -->
+			<!--
+			<select name="type">
+				<{foreach from=$type item=item key=key}>
+					<option value="<{$key}>" <{if $key=="<{$key}>"}>selected="<{$type}>"<{/if}>><{$item}></option>
+				<{/foreach}>
+			</select>
+			-->
+		   </div>
+		</th>
+
+                <td>
+                    <div class="timeset">
+                        <select id="kaifu_time_state" name="kaifu_time_state" class="time_type">
+                            <option value=0 selected><{$lang->activity->abTime}></option>
+                            <option value=1><{$lang->activity->relTime}></option>
+                        </select>
+                    </div>
+                    <div id="a_kaifu" class="timeset ts_abs">
+                        <{$lang->page->beginTime}>:<input type="text" class="Wdate" name="a_kaifu_start" id="a_kaifu_start" onfocus="WdatePicker({el:'', dateFmt:'yyyy-MM-dd HH:mm:00', minDate:'', maxDate:''})" /> 
+                        <{$lang->page->endTime}>:<input type="text" class="Wdate" name="a_kaifu_end" id="a_kaifu_end" onfocus="WdatePicker({el:'', dateFmt:'yyyy-MM-dd HH:mm:00', minDate:'', maxDate:''})" />
+                    </div>
+                    <div id="r_kaifu" class="timeset ts_rel">
+                        <{$lang->login->rank}>:<input type="text" name="r_kaifu_start_date" id="" /> <{$lang->login->day}> <input type="text" name="r_kaifu_start_time" id="" onfocus="_SetTime(this)" />
+                        ~ <{$lang->login->rank}>:<input type="text" name="r_kaifu_end_date" id="" /> <{$lang->login->day}> <input type="text" name="r_kaifu_end_time" id="" onfocus="_SetTime(this)" />
+                    </div>
+					<div>
+						<{foreach from=$type item=item key=key}>
+							<input type="radio" name="browser" onclick="check(this.value)"  value="<{$key}>" /><{$item}>
+						<{/foreach}>
+					</div>
+                </td>
+            </tr>
+            <!--
+            <tr>
+                <th>Set xianshi</th>
+                <td>
+                    <div class="timeset">
+                        <select id="xianshi_time_state" name="xianshi_time_state" class="time_type">
+                            <option value=0>ab</option>
+                            <option value=1>rl</option>
+                        </select>
+                    </div>
+                    <div id="a_xianshi" class="timeset ts_abs">
+                        Start:<input type="text" class="Wdate" name="a_xianshi_start" id="" onfocus="WdatePicker({el:'', dateFmt:'yyyy-MM-dd HH:mm:00', minDate:'', maxDate:''})" /> 
+                        End:<input type="text" class="Wdate" name="a_xianshi_end" id="" onfocus="WdatePicker({el:'', dateFmt:'yyyy-MM-dd HH:mm:00', minDate:'', maxDate:''})" />
+                    </div>
+                    <div id="r_xianshi" class="timeset ts_rel">
+                        No:<input type="text" name="r_xianshi_start_date" id="" /> day <input type="text" name="r_xianshi_start_time" id="" onfocus="_SetTime(this)" />
+                        ~ No:<input type="text" name="r_xianshi_end_date" id="" /> day <input type="text" name="r_xianshi_end_time" id="" onfocus="_SetTime(this)" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+            </tr>
+            -->
+        </table><br>
+
+		<{if $list}>
+			<table class="DataGrid" cellspacing="0" style="margin:5px; text-align:center;">
+
+				<tr>
+					<td><{$lang->icon->roleName}></td>	
+					<td><{$lang->icon->type}></td>	
+					<td><{$lang->icon->startTime}></td>	
+					<td><{$lang->icon->endTime}></td>	
+					<td><{$lang->icon->startDate}></td>	
+					<td><{$lang->icon->endDate}></td>
+                    <td><{$lang->page->del}></td>	
+				</tr>
+				<{foreach key=key item=item from=$list}>
+					<tr>
+						<td><{$item.role_name}></td>
+						<td><{if $item.type == 1}><{$lang->icon->kaiFu}><{else}><{$lang->icon->xuanGou}><{/if}></td>
+						<td><{$item.start_time}></td>
+						<td><{$item.end_time}></td>
+						<td><{$item.start_open_day_time}></td>
+						<td><{$item.end_open_day_time}></td>
+                        <td><a href="?action=del&id=<{$item.id}>" class="del"><{$lang->page->del}></a></td>   
+					</tr>
+				<{/foreach}>
+			</table>
+		<{/if}>
+
+        <br />
+        <input type="submit" name="" value="<{$lang->page->set}>" />
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $('#kaifu_time_state').val();
+            //$('#xianshi_time_state').val();
+            changeTimeStatus('#kaifu_time_state');
+            //changeTimeStatus('#xianshi_time_state');
+
+            $('.time_type').change(function(){
+                changeTimeStatus(this);
+            });
+
+            function changeTimeStatus(dom){
+                if ( $(dom).children('option:selected').val() == 0 ){
+                    $(dom).parent().parent().children('.ts_abs').css('display', 'block');
+                    $(dom).parent().parent().children('.ts_rel').css('display', 'none');
+                } else {
+                    $(dom).parent().parent().children('.ts_abs').css('display', 'none');
+                    $(dom).parent().parent().children('.ts_rel').css('display', 'block');
+                }
+            }
+            $('a.del').live('click', function(){
+                return confirm("<{$lang->page->confirmDel}>");
+            })
+        })
+    </script>
+</body>
+</html>
