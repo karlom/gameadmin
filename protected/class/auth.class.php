@@ -280,6 +280,8 @@ class AuthClass
 			$_SESSION['user_status'] = 1;
 			$_SESSION['overlord'] = true;
 			$_SESSION['adminver'] = 'default';
+			// var_dump($_SESSION);
+			// die();
 			return true;
 		}
 		return false;

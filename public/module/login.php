@@ -39,7 +39,7 @@ if ('logout'==$action) {
 		if ( ''==$errorMsg ) {
 			//写日志
 			$log = new AdminLogClass();
-			$log->Log(AdminLogClass::TYPE_SYS_LOGIN,'','','','','');
+			// $log->Log(AdminLogClass::TYPE_SYS_LOGIN,'','','','','');
 			if (time() - $_SESSION['last_change_passwd'] > 60 * 86400) {
 				header("Location:/module/system/password.php");//若已经太久没改密码，跳转到修改密码页
 			}else {

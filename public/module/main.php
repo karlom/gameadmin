@@ -118,37 +118,40 @@ table.sortable tr:hover{
           	<ul id="logdbinfo">
 			<?php 
 				$html = '';
-				foreach ($serverList as $key => $server)
-				{
-					$dbInfo = getDBInfo($server['ip'], $server['dbuser'], $server['dbpwd'], $server['dbname']) ;//dump($dbInfo);
-					$html .=<<<HTML
-					<li class=""><a href="#" style="font-weight:bold;font-size:110%;">$key: 
-					{$lang->sys->logDBName}: {$dbInfo['dbname']} 
-					{$lang->sys->logDBSize}: {$dbInfo['dbsize']} 
-					</a>
-					<table class="sortable" width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse; display:none;">
-					<tr>
-						<th>{$lang->sys->logTableName}</th>
-						<th>{$lang->sys->logTableSize}</th>
-						<th>{$lang->sys->logTableCharset}</th>
-						<th>{$lang->sys->logTableComment}</th>
+        if ($serverList) {
+          foreach ($serverList as $key => $server) 
+        {
+          $dbInfo = getDBInfo($server['ip'], $server['dbuser'], $server['dbpwd'], $server['dbname']) ;//dump($dbInfo);
+          $html .=<<<HTML
+          <li class=""><a href="#" style="font-weight:bold;font-size:110%;">$key: 
+          {$lang->sys->logDBName}: {$dbInfo['dbname']} 
+          {$lang->sys->logDBSize}: {$dbInfo['dbsize']} 
+          </a>
+          <table class="sortable" width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="BORDER-COLLAPSE: collapse; display:none;">
+          <tr>
+            <th>{$lang->sys->logTableName}</th>
+            <th>{$lang->sys->logTableSize}</th>
+            <th>{$lang->sys->logTableCharset}</th>
+            <th>{$lang->sys->logTableComment}</th>
 HTML;
-					foreach( $dbInfo['tables'] as $table )
-					{
-						$tableSize = $table['Data_length'] + $table['Index_length'];
-						$tableSizeText = sizecount( $tableSize );
-						$html .=<<<HTML
-						<tr>
-							<td>{$table['Name']}</td>
-							<td align="center" sorttable_customkey="$tableSize">$tableSizeText</td>
-							<td align="center">{$table['Collation']}</td>
-							<td>{$table['Comment']}</td>
-						</tr>
+          foreach( $dbInfo['tables'] as $table )
+          {
+            $tableSize = $table['Data_length'] + $table['Index_length'];
+            $tableSizeText = sizecount( $tableSize );
+            $html .=<<<HTML
+            <tr>
+              <td>{$table['Name']}</td>
+              <td align="center" sorttable_customkey="$tableSize">$tableSizeText</td>
+              <td align="center">{$table['Collation']}</td>
+              <td>{$table['Comment']}</td>
+            </tr>
 HTML;
-					}
-					$html .= "</table></li>";
-				}
-				echo $html;
+          }
+          $html .= "</table></li>";
+        }
+        echo $html;
+        }
+				
 			?>
 			</ul>
 		  </td>

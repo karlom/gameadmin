@@ -1,5 +1,8 @@
 <?php
 //左边菜单栏的类别
+$lang = new stdClass();
+$lang->menu = new stdClass();
+$lang->menu->class = new stdClass();
 $lang->menu->class->common = '常用菜单';
 $lang->menu->class->userInfo = '玩家信息管理';
 $lang->menu->class->itemData = '道具管理和统计';
@@ -254,6 +257,7 @@ $lang->menu->blueDiamondOpen = '蓝钻开通统计';
 $lang->menu->qingDian = 'Q仙庆典统计';
 
 //系统相关的一些文字描述
+$lang->sys = new stdClass();
 $lang->sys->title = '管理后台';
 $lang->sys->hello = '你好';
 $lang->sys->welcome = '欢迎你！';
@@ -270,7 +274,7 @@ $lang->sys->maxUploadFile = '支持上传的最大文件';
 $lang->sys->ifAllowRemoteConnect = '是否允许打开远程连接';
 $lang->sys->versionInfo = '软件版本信息';
 $lang->sys->devTeam = '开发团队';
-$lang->sys->devTeamYWKF = 'ddd--运维开发部';
+$lang->sys->devTeamYWKF = 'yangdongbo';
 $lang->sys->help = '使用帮助';
 $lang->sys->support = '支持';
 $lang->sys->unsupport = '不支持';
@@ -338,6 +342,7 @@ $lang->sys->confirmSetCombineTime = '确定设置合服时间为:';
 $lang->sys->confirmCleanCombineTime = '确定清空合服时间?';
 
 //分页相关文字描述
+$lang->page = new stdClass();
 $lang->page->first = '首页';
 $lang->page->pre = '上一页';
 $lang->page->next = '下一页';
@@ -810,7 +815,7 @@ $lang->page->register = '注册';
 $lang->page->todayCharge = '今日充值';
 $lang->page->allCharge = '历史充值';
 
-
+$lang->player = new stdClass();
 $lang->player->noUserExist = '没有此玩家';
 $lang->player->onlineUserCount = '当前在线玩家总数';
 $lang->player->onlineUniqueIPCount = '当前在线的不同IP数';
@@ -978,6 +983,7 @@ $lang->player->attachementDetail = '附件详情';
 $lang->player->xianzunExp = '仙尊经验';
 
 //仙石消费、余额
+$lang->gold = new stdClass();
 $lang->gold->consume_remark = '点击角色名、账号名可以直接查看该玩家的仙石使用记录';
 $lang->gold->rank = '排行';
 $lang->gold->gold_consume = '仙石消费';
@@ -1062,6 +1068,7 @@ $lang->gold->totalGetLiquan = '绑定仙石获得总量';
 $lang->gold->getOfGold = '的仙石获得情况';
 
 //绑定仙石
+$lang->liquan = new stdClass();
 $lang->liquan->liquan = '绑定仙石';
 $lang->liquan->allRemain = '绑定仙石总存量';
 $lang->liquan->activeLiquanRemain = '活跃绑定仙石存量';
@@ -1072,6 +1079,7 @@ $lang->liquan->liquanConsumeCount = '当天消费绑定仙石总数';
 
 
 //
+$lang->money = new stdClass();
 $lang->money->allRemain = '铜币总存量';
 $lang->money->activeMoneyRemain = '活跃铜币存量';
 $lang->money->moneyRemainRank = '铜币存量排行';
@@ -1099,12 +1107,14 @@ $lang->money->rate = '兑换仙石汇率';
 $lang->money->huntLite = '猎命';
 
 //灵气
+$lang->lingqi = new stdClass();
 $lang->lingqi->lingqiOutputAndExpend = '灵气产出与消耗';
 $lang->lingqi->lingqi = '灵气';
 $lang->lingqi->sit = '打坐获得';
 
 
 //vip信息查询统计
+$lang->vip = new stdClass();
 $lang->vip->stime = 'VIP开始时间';
 $lang->vip->itemid = 'VIP开通方式';
 $lang->vip->ctime = '续期';
@@ -1136,6 +1146,7 @@ $lang->vip->close = '关闭详细';
 $lang->vip->look = '查看详细';  
 
 //玩家职业统计
+$lang->career = new stdClass();
 $lang->career->remark = '活跃用户：最近7天登录过游戏2次以上(含2次)的用户';
 $lang->career->register = '玩家职业分布';
 $lang->career->country = '阵营';
@@ -1147,6 +1158,7 @@ $lang->career->activity_career = '活跃职业等级对比';
 $lang->career->level = '级';
 
 //活跃忠诚用户统计,活跃用户等级分布
+$lang->active = new stdClass();
 $lang->active->activePlayer = '活跃用户数';
 $lang->active->loyalPlayer = '忠诚用户数';
 $lang->active->maxOnline = '最大在线';
@@ -1172,6 +1184,7 @@ $lang->active->total = '总量';
 $lang->active->noData = '没有数据';
 
 //时间相关文字描述
+$lang->time = new stdClass();
 $lang->time->year = '年';
 $lang->time->month = '月';
 $lang->time->week = '周';
@@ -1184,6 +1197,7 @@ $lang->time->hour2 = '小时';
 $lang->time->min = '分钟';
 
 //游戏币相关
+$lang->currency = new stdClass();
 $lang->currency->ding = '锭';
 $lang->currency->liang = '两';
 $lang->currency->wen = '文';
@@ -1222,6 +1236,7 @@ $lang->currency->jieriXianbi = '节日仙币';
 
 
 //验证相关
+$lang->verify = new stdClass();
 $lang->verify->isNotNull = "不能为空";
 $lang->verify->username = "用户名";
 $lang->verify->nameOfRule = "只能由英文、数字、中文以及下划线组成";
@@ -1286,6 +1301,7 @@ $lang->verify->reject = '拒绝';
 $lang->verify->recLabel = '请选择标签';
 
 //Alert相关
+$lang->alert = new stdClass();
 $lang->alert->banIpConfirm = '真的要禁封这个IP吗?';
 $lang->alert->banIpTimeError = '禁封时间错误';
 $lang->alert->banIpErrorIp = '错误的IP地址';
@@ -1298,6 +1314,7 @@ $lang->alert->killAllPlayerServerIsNull = '请输入服务器标识';
 $lang->alert->killAllPlayerServerIsRight = '"当前所在的服为"+server+",你输入的标识不正确"';
 
 //道具相关
+$lang->item = new stdClass();
 $lang->item->itemID = '道具ID';
 $lang->item->itemUID = '道具唯一ID';
 $lang->item->itemName = '道具名称';
@@ -1352,6 +1369,7 @@ $lang->item->refineTongCnt = '精炼铜星个数';
 $lang->item->gem2ID = '镶嵌圣纹ID';
 
 //申请物品相关
+$lang->apply = new stdClass();
 $lang->apply->byRoleName = '按角色名赠送(一个玩家一行)';
 $lang->apply->byCondition = '按条件赠送';
 $lang->apply->addMore = '继续添加';
@@ -1369,6 +1387,7 @@ $lang->apply->sureToStart = '确定开始定时发送道具？';
 $lang->apply->sureToStop = '确定停止定时发送道具？';
 
 //职业
+$lang->occupation = new stdClass();
 $lang->occupation->occupation = '职业';
 $lang->occupation->wusheng = '武圣';
 $lang->occupation->wuzun = '武尊';
@@ -1376,6 +1395,7 @@ $lang->occupation->lingxiu = '灵修';
 $lang->occupation->jianxian = '剑仙';
 
 //宠物相关
+$lang->pet = new stdClass();
 $lang->pet->pet = '宠物';
 $lang->pet->petUUID = '宠物实际ID';
 $lang->pet->petId = '宠物ID';
@@ -1467,6 +1487,7 @@ $lang->pet->growType = '类型';
 
 //副本
 //---------副本数据查询-----------
+$lang->copyscene = new stdClass();
 $lang->copyscene->copy = '副本';
 $lang->copyscene->copyType  = '选择副本类型';
 $lang->copyscene->allCopy  = '所有副本';
@@ -1531,6 +1552,7 @@ $lang->copyscene->totalNumCount = '闯天门退出层数人数统计';
 $lang->copyscene->outTotalNum = '退出总人数';
 
 //提示相关
+$lang->msg = new stdClass();
 $lang->msg->accountNotExist = '帐号不存在';
 $lang->msg->roleNotExist = '角色不存在';
 $lang->msg->editSucc = '修改成功';
@@ -1567,10 +1589,12 @@ $lang->msg->oldDataHere = '注意：这里查询到的是旧数据！';
 $lang->msg->selectAtLeastOne = '请至少选择一项';
 
 //后台LOG相关
+$lang->log = new stdClass();
 $lang->log->banIp = '被禁封的IP:';
 $lang->log->unBanIp = '被解封的IP:';
 
 // 市场相关
+$lang->market = new stdClass();
 $lang->market->order = '单号';
 $lang->market->buyGold = '求购仙石';
 $lang->market->sellGold = '仙石出售';
@@ -1598,6 +1622,7 @@ $lang->market->other = '其他数据';
 $lang->market->buyAccountName = '购买者账号';
 
 // 境界相关
+$lang->jingjie = new stdClass();
 $lang->jingjie->jingjie = '境界';
 $lang->jingjie->systemData = '系统数据';
 $lang->jingjie->level = '等级';
@@ -1617,6 +1642,7 @@ $lang->jingjie->skillInfo = '境界技能信息';
 
 
 // 活动相关
+$lang->activity = new stdClass();
 $lang->activity->amplify = '增益';
 $lang->activity->times = '倍';
 $lang->activity->dateStart = '开始日期';
@@ -1650,6 +1676,7 @@ $lang->activity->summary = '汇总';
 
 
 //游戏基础数据相关
+$lang->basedata = new stdClass();
 $lang->basedata->billType = "交易类型";
 $lang->basedata->date = "日期";
 $lang->basedata->billCount = "挂单次数";
@@ -1679,10 +1706,12 @@ $lang->basedata->addUp = '累计';
 
 
 //基础数据配置信息
+$lang->basedataconfig = new stdClass();
 $lang->basedataconfig->pleaseSelectServer = '请至少选择一个同步区服';
 $lang->basedataconfig->needSyncServer = '需要同步的区服';
 
 //每日登录统计
+$lang->login = new stdClass();
 $lang->login->dayLossPayPlayer = '1、每日流失付费用户数：当天为该付费数最后登录时间的人数；';
 $lang->login->dayPayPlayerLogin= '2、三日内付费用户登录数：近三天有登录的付费用户数；';
 $lang->login->dayLoginNums= '3、每日登录次数：统计每天登录的角色次数，如：某玩家A，登录10次，统计10次;';
@@ -1718,6 +1747,7 @@ $lang->login->payUserLoginNum = '周付费用户登陆量：付费并近7天有�
 $lang->login->weekColumn = '周期一栏，分3行显示，第一行显示该周开始月日，第一行显示该周结束月日，第三行显示开服第几周。';
 
 //夺宝信息查询
+$lang->duobao = new stdClass();
 $lang->duobao->prevMap = '进入副本前的地图';
 $lang->duobao->itime = '进入副本时间';
 $lang->duobao->otime = '退出副本时间';
@@ -1727,6 +1757,7 @@ $lang->duobao->item = '获得';
 
 
 //装备强化查询
+$lang->strengthen = new stdClass();
 $lang->strengthen->protectId = '保护符';
 $lang->strengthen->stoneId = '强化石';
 $lang->strengthen->luckId = '幸运符';
@@ -1743,6 +1774,7 @@ $lang->strengthen->success = '成功';
 $lang->strengthen->failure = '失败';
 
 //灵石拆卸查询
+$lang->unmount = new stdClass();
 $lang->unmount->equipUid = '装备唯一ID';
 $lang->unmount->equipId = '装备';
 $lang->unmount->stoneId = '获得灵石';
@@ -1770,6 +1802,7 @@ $lang->unmount->yes = '是';
 $lang->unmount->no = '否';
 
 //颜色提升查询
+$lang->color = new stdClass();
 $lang->color->equipUid = '装备唯一ID';
 $lang->color->equipId = '装备ID';
 $lang->color->stoneId = '提色石ID';
@@ -1786,6 +1819,7 @@ $lang->color->gold = '金';
 $lang->color->orange = '橙';
 
 //装备洗练查询
+$lang->wash = new stdClass();
 $lang->wash->equipUid = '装备唯一ID';
 $lang->wash->equipId = '装备ID';
 $lang->wash->equipColor = '装备颜色';
@@ -1810,6 +1844,7 @@ $lang->wash->maxMp = '最大法力';
 $lang->wash->attr = '属性顺序';
 
 //创建GM账号
+$lang->create = new stdClass();
 $lang->create->gmRoleName = 'gm角色名';
 $lang->create->gmAccountName = 'gm账号名';
 $lang->create->job = '职业';
@@ -1842,6 +1877,7 @@ $lang->create->roleName = '角色名';
 $lang->create->accountName = '账号名';
 
 //帐号设置
+$lang->account = new stdClass();
 $lang->account->roleName = '角色名';
 $lang->account->accountName = '帐号名';
 $lang->account->createTime = '创建时间';
@@ -1862,6 +1898,7 @@ $lang->account->noNull = '玩家角色名帐号都为空！请重新输入！';
 $lang->account->roleNameSetTip = '该角色名存在，请点击设置按钮！';
 
 //强化等级查询
+$lang->strengthenLv = new stdClass();
 $lang->strengthenLv->strengthenLvRange = '强化等级范围';
 $lang->strengthenLv->operateTimes = '操作次数';
 $lang->strengthenLv->rolenames = '角色数';
@@ -1886,6 +1923,7 @@ $lang->strengthenLv->total = '汇总';
 $lang->strengthenLv->roleTotal = '唯一角色数(是指汇总一件以上装备在强化前达到+3的唯一角色数,用来过滤系统引导强化前3级的玩家):';
 
 //炼制查询
+$lang->make = new stdClass();
 $lang->make->materialOne = '材料一';
 $lang->make->materialOneNum = '一数量';
 $lang->make->materialTwo = '材料二';
@@ -1904,6 +1942,7 @@ $lang->make->productNum = '物品数量';
 $lang->make->cost = '花费铜钱';
 
 //装备继承查询
+$lang->inherit = new stdClass();
 $lang->inherit->equipId = '装备ID';
 $lang->inherit->equipUid = '装备UID';
 $lang->inherit->equipName = '装备名称';
@@ -1952,6 +1991,7 @@ $lang->inherit->speed = '速度';
 //-----------------
 
 //数据警报
+$lang->monitor = new stdClass();
 $lang->monitor->currencyAlert = '携带货币上限警报';
 $lang->monitor->id = '序号';
 $lang->monitor->attention = '注意';
@@ -1961,6 +2001,7 @@ $lang->monitor->arg = '参数';
 $lang->monitor->desc = '说明';
 
 //技能与仙符
+$lang->skill = new stdClass();
 $lang->skill->skillBarData = '技能快捷栏信息';
 $lang->skill->skillName = '技能名';
 $lang->skill->selectCount = '选择人数';
@@ -1976,6 +2017,7 @@ $lang->skill->element = '仙符';
 $lang->skill->skillId = '技能ID';
 
 //排行
+$lang->rank = new stdClass();
 $lang->rank->rank = '排名';
 $lang->rank->yestodayLevel = '昨天等级';
 $lang->rank->jingjieLevel = '境界等级';
@@ -1989,6 +2031,7 @@ $lang->rank->wingName = '仙羽名';
 $lang->rank->master = '主人';
 
 //黄钻信息
+$lang->yellow = new stdClass();
 $lang->yellow->isYellowDiamond = '是否黄钻';
 $lang->yellow->isYellowYearDiamond = '是否年费黄钻';
 $lang->yellow->yellowDiamondLevel = '黄钻等级';
@@ -2009,6 +2052,7 @@ $lang->yellow->renewYearRoleCount = '年费黄钻续费次数';
 $lang->yellow->maxRenewDayRoleCount = '单人单日最高续费次数';
 
 //蓝钻信息
+$lang->blue = new stdClass();
 $lang->blue->allCount = '总计';
 $lang->blue->isBlueDiamond = '是否蓝钻';
 $lang->blue->isBlueYearDiamond = '是否年费蓝钻';
@@ -2027,6 +2071,7 @@ $lang->blue->renewRoleCount = '蓝钻续费次数';
 $lang->blue->renewYearRoleCount = '年费蓝钻续费次数';
 $lang->blue->maxRenewDayRoleCount = '单人单日最高续费次数';
 
+$lang->pay = new stdClass();
 $lang->pay->price = '单价';
 $lang->pay->total = '总价';
 $lang->pay->buyTime = '购买时间';
@@ -2069,6 +2114,7 @@ $lang->pay->payMoney = '充值金额';
 $lang->pay->payGold = '充值元宝';
 
 //法宝信息
+$lang->talisman = new stdClass();
 $lang->talisman->upgradeData = '法宝进阶信息';
 $lang->talisman->name = '法宝名称';
 $lang->talisman->upgradeCount = '进阶总次数';
@@ -2082,6 +2128,7 @@ $lang->talisman->talismanLevel = '法宝祭炼等级';
 $lang->talisman->illusionTalisman = '已激活幻化法宝';
 
 //结婚系统
+$lang->marry = new stdClass();
 $lang->marry->propose = '求婚';
 $lang->marry->proposeCount = '求婚次数';
 $lang->marry->proposeSuccessCount = '求婚成功次数';
@@ -2114,6 +2161,7 @@ $lang->marry->peaceDivorceCount = '好聚好散离婚数';
 $lang->marry->enforeDivorceCount = '强制解除离婚数';
 
 //仙羽(翅膀)
+$lang->wing = new stdClass();
 $lang->wing->info = '仙羽信息';
 $lang->wing->level = '仙羽等级';
 $lang->wing->shentongLevel = '仙羽神通等级';

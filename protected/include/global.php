@@ -53,7 +53,6 @@ include_once SYSDIR_ADMIN_CONFIG . "/base.config.php";
 if (! $auth) {
 	$auth = new AuthClass ();
 }
-
 if (! $auth->auth () || ! $_SESSION ['username']) {
     echo '<script type="text/javascript">window.open( "/module/login.php", "_top");</script>';
 //	header ( "Location:/module/login.php" );

@@ -55,7 +55,7 @@ define ( 'LIST_PER_PAGE_RECORDS', 20 ); //Search page show ... records per page
 define ( 'LIST_SHOW_PREV_NEXT_PAGES', 10 ); //First Prev 1 2 3 4 5 6 7 8 9 10... Next Last
 define ( 'HIGHTLIGHT_PERCENTAGE', 0.8 ); //First Prev 1 2 3 4 5 6 7 8 9 10... Next Last
 //===============================//
-define ( 'CFG_POWERBY', 'ywkf@aaaa.com' );
+define ( 'CFG_POWERBY', '4250239@qq.com' );
 //包含配置文件
 
 //===============================//

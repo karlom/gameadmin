@@ -33,6 +33,9 @@ class AdminUserClass
 		$data['passwd'] = strtolower(md5($password));
 		$data['comment'] = $comment;
 		$data['last_login_time'] = time();
+		$data['user_power'] = '0';
+		$data['last_change_passwd'] = time();
+		$data['groupid'] = 0;
 		$sql = DBMysqlClass::makeInsertSqlFromArray($data, T_ADMIN_USER);
 		IQuery($sql);
 		$uid = DBMysqlClass::fetchLatestIDWithData($data, T_ADMIN_USER, 'uid');
